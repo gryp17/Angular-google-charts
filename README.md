@@ -3,30 +3,31 @@ AngularJS google charts wrapper directive that lets you create flexible and resp
 
 ## Installation:
 
+
 1. Include angularJS and the google charts library like you would normally do:
 
-```html
+	```html
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
+	
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-
+	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
 		google.load('visualization', '1.0', {'packages': ['corechart']});
 	</script>
-```
+	```
 
 2. Include the Angular-google-charts module:
 
-```html
+	```html
 	<script src="libs/angular-google-charts.min.js"></script>
-```
+	```
 
 3. Inject the module in your app:
 
-```javascript
-var app = angular.module("MyApp", ["AngularGoogleCharts"]);
-```
+	```javascript
+	var app = angular.module("MyApp", ["AngularGoogleCharts"]);
+	```
 
 ## Examples:
 
