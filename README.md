@@ -65,10 +65,13 @@ The markup:
 <div responsive-google-chart chart-config="myChart.config"></div>
 ```
 
-
 #### Using the "preprocess" callback function
 
 The preprocess function is an optional middleware function can be used to preprocess the chartConfig.data before passing it to the google charts library. It is also run every time the page is resized which allows us to modify the data dynamically based on the page resolution.
+
+It receives one parameter:
+
+* data - the data that was passed in chartConfig.data
 
 The javascript:
 
@@ -107,8 +110,53 @@ The markup:
 	preprocess="myChart.preprocess(data)"></div>
 ```
 
+#### Using the "resizeCallback" function
 
+The resizeCallback function can be used to modify the chartConfig.options attribute on page resize.
+It receives two parameters:
 
+* width - the current page width
+* options - the chart options object
+
+The javascript:
+
+```javascript
+$scope.myChart = {
+	config: {
+		//any google chart type (BarChart, ColumnChart, PieChart...)
+		type: "BarChart",
+		data: $scope.data,
+		//google chart options object
+		options: {
+			width: "100%",
+			series: [
+				{color: "red"}, 
+				{color: "blue"}, 
+				{color: "green"}
+			]
+		}
+	},
+	resizeCallback: function (width, options) {
+
+		//change the chart width based on the page resolution
+		if(width > 768){
+			options.width = "50%";
+		}else{
+			options.width = "100%";
+		}
+		
+		return options;
+	}
+};
+```
+
+The markup:
+
+```html
+<div responsive-google-chart
+	chart-config="myChart.config"
+	resize-callback="myChart.resizeCallback(width, options)"></div>
+```
 
 
 
