@@ -1,8 +1,9 @@
 # Angular-google-charts
-AngularJS google charts wrapper directive that lets you create flexible and responsive google charts
+AngularJS google charts wrapper directive that lets you create flexible and responsive google charts.
+
+The directive is built to work with the [google charts data formats and configuration options](https://developers.google.com/chart/).
 
 ## Installation:
-
 
 1. Include angularJS and the google charts library like you would normally do:
 
@@ -116,7 +117,7 @@ The resizeCallback function can be used to modify the chartConfig.options attrib
 It receives two parameters:
 
 * width - the current page width
-* options - the chart options object
+* options - the config.options object
 
 The javascript:
 
