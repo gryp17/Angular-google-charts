@@ -51,13 +51,9 @@ $scope.myChart = {
 		options: {
 			width: "100%",
 			series: [
-				{
-					color: "red"
-				}, {
-					color: "blue"
-				}, {
-					color: "green"
-				}
+				{color: "red"}, 
+				{color: "blue"}, 
+				{color: "green"}
 			]
 		}
 	}
@@ -66,8 +62,52 @@ $scope.myChart = {
 
 The markup:
 ```html
-<div responsive-google-chart chart-config="myChart.config">
+<div responsive-google-chart chart-config="myChart.config"></div>
 ```
+
+
+#### Using the "preprocess" callback function
+
+The preprocess function is an optional middleware function can be used to preprocess the chartConfig.data before passing it to the google charts library. It is also run every time the page is resized which allows us to modify the data dynamically based on the page resolution.
+
+The javascript:
+
+```javascript
+$scope.myChart = {
+	config: {
+		//any google chart type (BarChart, ColumnChart, PieChart...)
+		type: "BarChart",
+		data: $scope.data,
+		//google chart options object
+		options: {
+			width: "100%",
+			series: [
+				{color: "red"}, 
+				{color: "blue"}, 
+				{color: "green"}
+			]
+		}
+	},
+	preprocess: function (data) {
+	
+		data = data.map(function (item){
+			//modify the chart data...
+		});
+		
+		return data;
+	}
+};
+```
+
+The markup:
+
+```html
+<div responsive-google-chart 
+	chart-config="myChart.config"
+	preprocess="myChart.preprocess(data)"></div>
+```
+
+
 
 
 
