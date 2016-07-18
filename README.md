@@ -36,7 +36,7 @@ The directive is built to work with the [google charts data formats and configur
 
 The javascript:
 ```javascript 
-//google charts formated array
+//google charts formatted array
 $scope.data = [
 	["Downloads", "Plamen", "Fran", "Jacobo"],
 	["Today", 2, 3, 5],
